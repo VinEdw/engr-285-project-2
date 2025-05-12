@@ -79,7 +79,7 @@ def bisection(a, b, f, atol=1e-8):
             b = mid
             f_b = mid
 
-def find_launch_speed(rad_launch_theta, target_pos, launch_speed_guess=1):
+def find_launch_speed(rad_launch_theta, target_pos, launch_speed_guess=1.0):
     """
     Find the launch speed required to hit the target at the given position using the given launch angle. 
     Optionally provide a launch speed guess to help pinpoint where the needed launch speed might be.
