@@ -54,3 +54,27 @@ def distance_from_target(v_0, target_pos):
         distance = intersection_r - target_r
 
     return distance
+
+def bisection(a, b, f, atol=1e-8):
+    """
+    Use the bisection method to find a root of the given function on the interval [a, b].
+    The root returned will have the given absolute tolerance.
+    f(a) and f(b) must have opposite signs.
+    """
+    f_a = f(a)
+    f_b = f(b)
+    assert max(f_a, f_b) > 0 and min(f_a, f_b) < 0, "f(a) and f(b) must have opposite signs"
+
+    while True:
+        error_bound = (b - a) / 2
+        mid = (a + b) / 2
+        if error_bound < atol:
+            return mid
+
+        f_mid = f(mid)
+        if (f_a >= 0 and f_mid >= 0) or (f_a <= 0 and f_mid <= 0):
+            a = mid
+            f_a = f_mid
+        else:
+            b = mid
+            f_b = mid
