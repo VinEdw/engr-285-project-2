@@ -16,6 +16,7 @@ $(OUTPUT_DIR)/projectile.py: $(SCRIPT_DIR)/rk4.py
 $(OUTPUT_DIR)/motion_interdependence.py: $(SCRIPT_DIR)/projectile.py
 $(OUTPUT_DIR)/trajectory_shapes.py: $(SCRIPT_DIR)/projectile.py
 $(OUTPUT_DIR)/firing_range.py: $(SCRIPT_DIR)/projectile.py
+$(OUTPUT_DIR)/hitting_fixed_target.py: $(SCRIPT_DIR)/projectile.py
 
 .PHONY: clean
 clean: 
