@@ -115,3 +115,24 @@ def find_launch_speed(rad_launch_theta, target_pos, launch_speed_guess=1.0):
             launch_speed_high = launch_speed_low
 
     return bisection(launch_speed_low, launch_speed_high, distance_func)
+
+N = 50
+angle_padding = 20
+deg_theta_values = np.linspace(0 + angle_padding, 90 - angle_padding, N)
+
+target_pos = (2, 1)
+deg_target_theta = np.degrees(np.atan2(target_pos[1], target_pos[0]))
+deg_theta_above_target = deg_theta_values[deg_theta_values > deg_target_theta]
+rad_theta_above_target = np.radians(deg_theta_above_target)
+
+launch_speed_values = []
+launch_speed_guess = 1.0
+for rad_theta in rad_theta_above_target:
+    launch_speed = find_launch_speed(rad_theta, target_pos, launch_speed_guess=launch_speed_guess)
+    launch_speed_values.append(launch_speed)
+    launch_speed_guess = launch_speed
+
+fig, ax = plt.subplots()
+ax.set(ylabel="$v_0$", xlabel="$\\theta$ (°)", title=f"Target at (x, y) = {target_pos}")
+ax.plot(deg_theta_above_target, launch_speed_values, ".")
+fig.savefig("media/test_hitting_target.svg")
