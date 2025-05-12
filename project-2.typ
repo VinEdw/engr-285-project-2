@@ -42,6 +42,8 @@ This makes the terminal speed $v_oo = 1$.
 
 #py_script("rk4", put_output: false, put_fname: true)
 
+#py_script("projectile", put_output: false, put_fname: true)
+
 = Interdependence of Horizontal and Vertical Motion
 
 #py_script("motion_interdependence", put_output: false, put_fname: false)
