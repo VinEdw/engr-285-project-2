@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 N = 100
 
 # Plot firing range vs launch angle as launch speed changes
-v_0_values = np.linspace(0, 1.5, 7)
+v_0_values = np.linspace(0, 2.0, 9)
 deg_theta_values = np.linspace(0, 90, N)
 
 fig, ax = plt.subplots()
@@ -27,7 +27,7 @@ fig.savefig("media/R_vs_theta.svg")
 
 # Plot firing range vs launch speed as launch angle changes
 deg_theta_values = np.linspace(0, 90, 7)
-v_0_values = np.linspace(0, 1.5, N)
+v_0_values = np.linspace(0, 4, N)
 
 fig, ax = plt.subplots()
 ax.set(ylabel="$R$", xlabel="$v_0$")
