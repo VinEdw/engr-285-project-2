@@ -78,3 +78,40 @@ def bisection(a, b, f, atol=1e-8):
         else:
             b = mid
             f_b = mid
+
+def find_launch_speed(rad_launch_theta, target_pos, launch_speed_guess=1):
+    """
+    Find the launch speed required to hit the target at the given position using the given launch angle. 
+    Optionally provide a launch speed guess to help pinpoint where the needed launch speed might be.
+    """
+    target_x, target_y = target_pos
+    min_target_theta = np.atan2(target_y, target_x)
+    assert rad_launch_theta >= min_target_theta, "The launch angle must be greater than the line of sight angle"
+
+    v_hat = np.array([np.cos(rad_launch_theta), np.sin(rad_launch_theta)])
+    distance_func = lambda v: distance_from_target(v * v_hat, target_pos)
+
+    # Find an upper and lower bound for the needed launch speed
+    d_guess = distance_func(launch_speed_guess)
+    if d_guess <= 0:
+        launch_speed_low = launch_speed_guess
+        dist_low = d_guess
+        launch_speed_high = launch_speed_guess
+        while True:
+            launch_speed_high *= 2
+            dist_high = distance_func(launch_speed_high)
+            if dist_high >= 0:
+                break
+            launch_speed_low = launch_speed_high
+    else:
+        launch_speed_high = launch_speed_guess
+        dist_high = d_guess
+        launch_speed_low = launch_speed_guess
+        while True:
+            launch_speed_low /= 2
+            dist_low = distance_func(launch_speed_low)
+            if dist_low <= 0:
+                break
+            launch_speed_high = launch_speed_low
+
+    return bisection(launch_speed_low, launch_speed_high, distance_func)
