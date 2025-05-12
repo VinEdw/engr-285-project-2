@@ -40,15 +40,56 @@ This makes the terminal speed $v_oo = 1$.
 
 = Runge-Kutta Four (RK4) Method
 
+#py_script("rk4", put_output: false, put_fname: true)
+
 = Interdependence of Horizontal and Vertical Motion
+
+#py_script("motion_interdependence", put_output: false, put_fname: false)
+
+#figure(
+  image("media/x_vs_t.svg", width: 80%),
+  caption: [$x$ vs $t$ as $v_(0y)$ Varies],
+)
+
+#figure(
+  image("media/y_vs_t.svg", width: 80%),
+  caption: [$y$ vs $t$ as $v_(0x)$ Varies],
+)
 
 = Trajectory Shapes
 
+#py_script("trajectory_shapes", put_output: false, put_fname: false)
+
+#figure(
+  image("media/xy_vs_theta.svg", width: 80%),
+  caption: [Trajectory as $theta$ Varies],
+)
+
+#figure(
+  image("media/xy_vs_v.svg", width: 80%),
+  caption: [Trajectory as $v_0$ Varies],
+)
+
 = Firing Range
 
-== As a Function of Firing Angle
+#py_script("firing_range", put_output: false, put_fname: false)
 
-== As a Function of Initial Speed
+#figure(
+  image("media/R_vs_theta.svg", width: 80%),
+  caption: [$R$ vs $theta$ as $v_0$ Varies],
+)
+
+#figure(
+  image("media/xy_vs_v.svg", width: 80%),
+  caption: [$R$ vs $v_0$ as $theta$ Varies],
+)
 
 = Extension
+
+#py_script("hitting_fixed_target", put_output: false, put_fname: false)
+
+#figure(
+  image("media/test_hitting_target.svg", width: 80%),
+  caption: [Test Hitting Target],
+)
 
