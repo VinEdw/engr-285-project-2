@@ -5,12 +5,13 @@ import matplotlib.pyplot as plt
 # Plot horizontal position over time as vertical velocity changes
 v_0x = 0.5
 v_0y_values = np.linspace(0, 1.5, 7)
+t_f = 2.0
 
 fig, ax = plt.subplots()
 ax.set(ylabel="$x$", xlabel="$t$", title=f"$v_{{0x}}$ = {v_0x:.2f}")
 
 for v_0y in v_0y_values:
-    t, u = projectile.launch([v_0x, v_0y])
+    t, u = projectile.launch([v_0x, v_0y], lambda t, u: t >= t_f)
     x = u[:, 0]
     ax.plot(t, x)
 
