@@ -34,7 +34,7 @@ def launch(v_0, should_exit=below_ground):
     """
     Launch a projectile from the origin with the given launch velocity.
     By default, stop after the projectile hits the ground (when y < 0).
-    If desired, an alternate function t and u can be passed.
+    If desired, an alternate function of t and u can be passed.
     This function should return True when the exit condition is met.
 
     Return the arrays of t and u.
