@@ -61,6 +61,16 @@ The `rk4.py` file contains a `calculate()` function that implements the RK4 meth
 
 #py_script("rk4", put_output: false, put_fname: true)
 
+The `projectile.py` file contains functions to help simulate the motion of a projectile experiencing quadratic drag.
+The `u_prime()` function implements the system of differential equations that describe the motion of the projectile.
+
+$
+arrow(u) &= vec(x, y, v_x, v_y) \
+(d arrow(u))/(d t) &= vec(v_x, v_y, -k v v_x, -g - k v v_y)
+$
+
+The `launch()` function simulates launching a projectile from the origin with the given initial velocity `v_0`, and it returns arrays containing $t$ and $arrow(u)$ values.
+By default the `should_exit` parameter is set to the `below_ground()` function, which returns `True` when the projectile falls below the ground ($y < 0$).
 #py_script("projectile", put_output: false, put_fname: true)
 
 = Interdependence of Horizontal and Vertical Motion
