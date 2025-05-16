@@ -55,7 +55,7 @@ def horizontal_range(v_0):
     Return the horizontal range of the projectile.
     Approximate the range as the x-intercept of the line connecting the last two points of the projectile's path.
     """
-    t, u = launch(v_0)
+    t, u = launch(v_0, below_ground)
     x = u[:, 0]
     y = u[:, 1]
 
