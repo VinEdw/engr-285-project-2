@@ -163,7 +163,7 @@ Note that if the line is vertical, which occurs when $x_(-2) = x_(-1)$, then the
   caption: [$R$ vs $v_0$ as $theta$ Varies],
 )
 
-= Extension
+= Hitting a Fixed Target
 
 #py_script("hitting_fixed_target", put_output: false, put_fname: false)
 
