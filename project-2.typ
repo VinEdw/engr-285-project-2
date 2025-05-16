@@ -38,7 +38,26 @@ Projectiles were started on the ground at $(x, y) = (0, 0)$.
 To focus on scale-independent features of the motion, units of distance and time were used such that $g = 1$ and $k = 1$.
 This makes the terminal speed $v_oo = 1$.
 
-= Runge-Kutta Four (RK4) Method
+= Runge-Kutta Four (RK4) Method for Systems
+
+To solve the system of differential equations, the RK4 method for systems was used.
+
+$
+(d arrow(u))/(d t) &= arrow(f)(t, arrow(u)) \
+arrow(k)_1 &= arrow(f)(t_i, arrow(u)_i) \
+arrow(k)_2 &= arrow(f)(t_i + h/2, arrow(u)_i + h/2 arrow(k)_1) \
+arrow(k)_3 &= arrow(f)(t_i + h/2, arrow(u)_i + h/2 arrow(k)_2) \
+arrow(k)_4 &= arrow(f)(t_i + h, arrow(u)_i + h arrow(k)_3) \
+arrow(u)_(i+1) &= arrow(u)_i + h/6 (arrow(k)_1 + 2 arrow(k)_2 + 2 arrow(k)_3 + arrow(k)_4) \
+$
+
+The `rk4.py` file contains a `calculate()` function that implements the RK4 method for systems in Python.
+`calculate()` returns arrays containing $t$ and $arrow(u)$ values, and it takes the following parameters:
+- `t_0`: a starting $t$ value
+- `u_0`: an array containing the initial value for each variable in the system $arrow(u)_0$
+- `h`: a step size
+- `diff`: a function that takes `t` and `u` as inputs and returns an array containing the result of the differential equation $arrow(f)(t, arrow(u))$
+- `should_exit`: a function that takes `t` and `u` as inputs and returns `True` when the iterations should stop
 
 #py_script("rk4", put_output: false, put_fname: true)
 
