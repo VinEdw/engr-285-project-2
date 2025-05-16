@@ -12,11 +12,11 @@ $(OUTPUT_DIR)/%.output: $(SCRIPT_DIR)/%.py
 	@mkdir -p media
 	python $< > $@
 
-$(OUTPUT_DIR)/projectile.py: $(SCRIPT_DIR)/rk4.py
-$(OUTPUT_DIR)/motion_interdependence.py: $(SCRIPT_DIR)/projectile.py
-$(OUTPUT_DIR)/trajectory_shapes.py: $(SCRIPT_DIR)/projectile.py
-$(OUTPUT_DIR)/firing_range.py: $(SCRIPT_DIR)/projectile.py
-$(OUTPUT_DIR)/hitting_fixed_target.py: $(SCRIPT_DIR)/projectile.py
+$(OUTPUT_DIR)/projectile.output: $(SCRIPT_DIR)/rk4.py
+$(OUTPUT_DIR)/motion_interdependence.output: $(SCRIPT_DIR)/projectile.py
+$(OUTPUT_DIR)/trajectory_shapes.output: $(SCRIPT_DIR)/projectile.py
+$(OUTPUT_DIR)/firing_range.output: $(SCRIPT_DIR)/projectile.py
+$(OUTPUT_DIR)/hitting_fixed_target.output: $(SCRIPT_DIR)/projectile.py
 
 .PHONY: clean
 clean: 
