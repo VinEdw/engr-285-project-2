@@ -34,6 +34,9 @@
   // Style raw blocks
   show raw.where(block: true): it => block(fill: rgb("#E6E6E6"), inset: 0.6em, width: 100%, it)
 
+  // Equation numbering
+  set math.equation(numbering: "(1)")
+
   // Title
   stack(
     dir: direction.ttb,
