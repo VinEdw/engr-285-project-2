@@ -123,17 +123,39 @@ Note that if the line is vertical, which occurs when $x_(-2) = x_(-1)$, then the
 
 = Interdependence of Horizontal and Vertical Motion
 
+When modeling projectiles with no drag or linear drag, one property that emerges is the independence of horizontal and vertical motion.
+This occurs because $(d v_x)/(d t)$ does not depend on $y$ or $v_y$, and similarly $(d v_y)/(d t)$ does not depend on $x$ or $v_x$.
+
+With the quadratic drag model, $(d v_x)/(d t)$ depends on $v_y$.
+$ (d v_x)/(d t) = -k v v_x = -k v_x sqrt(v_x^2 + v_y^2) $
+Similarly, $(d v_y)/(d t)$ depends on $v_x$.
+$ (d v_y)/(d t) = -g - k v v_y = -g - k v_y sqrt(v_x^2 + v_y^2) $
+Increasing $v_x$ or $v_y$ causes the drag experienced in both the $x$ and $y$ directions to increase.
+This leads to the interdependence of horizontal and vertical motion.
+
 #py_script("motion_interdependence", put_output: false, put_fname: false)
+
+@x_vs_t plots the horizontal position of the projectile over time as the initial vertical velocity varies.
+The initial horizontal velocity was kept constant.
+Each launch was kept going for the same amount of time.
+If $x$ and $y$ motion were independent, then each plot for a different $v_(0y)$ value would be identical.
+Since the plots vary as $v_(0y)$ changes, this demonstrates the interdependence of $x$ and $y$ motion.
 
 #figure(
   image("media/x_vs_t.svg", width: 80%),
   caption: [$x$ vs $t$ as $v_(0y)$ Varies],
-)
+) <x_vs_t>
+
+@y_vs_t plots the vertical position of the projectile over time as the initial horizontal velocity varies.
+The initial vertical velocity was kept constant.
+Each launch was kept going until the projectile hit the ground ($y = 0$).
+If $x$ and $y$ motion were independent, then each plot for a different $v_(0x)$ value would be identical.
+Since the plots vary as $v_(0x)$ changes, this demonstrates the interdependence of $x$ and $y$ motion.
 
 #figure(
   image("media/y_vs_t.svg", width: 80%),
   caption: [$y$ vs $t$ as $v_(0x)$ Varies],
-)
+) <y_vs_t>
 
 = Trajectory Shapes
 
