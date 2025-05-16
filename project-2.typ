@@ -1,4 +1,6 @@
 #import "engr-conf.typ": conf, py_script
+#import "@preview/cetz:0.3.4"
+
 #show: conf.with(
   title: [Realistic Projectiles],
   authors: (
@@ -71,6 +73,52 @@ $
 
 The `launch()` function simulates launching a projectile from the origin with the given initial velocity `v_0`, and it returns arrays containing $t$ and $arrow(u)$ values.
 By default the `should_exit` parameter is set to the `below_ground()` function, which returns `True` when the projectile falls below the ground ($y < 0$).
+
+The `horizontal_range()` function was used to determine the horizontal range for a projectile launched with the given initial velocity `v_0`.
+It does so by calculating the intersection between the ground and the line connecting the last two points of the projectile's motion.
+If the last point is labeled $(x_(-1), y_(-1))$ and the second to last point is labeled $(x_(-2), y_(-2))$, then the slope of the line connecting them is $ m = (y_(-2) - y_(-1))/(x_(-2) - x_(-1)) $
+The equation for that line can be written as $ y = m (x - x_(-1)) + y_(-1) $
+The $x$-value where the line intersects the ground ($y = 0$) corresponds to the range $R$.
+Solving for that intersection yields
+$
+0 &= m (R - x_(-1)) + y_(-1) \
+R &= -y_(-1)/m + x_(-1)
+$
+
+Note that if the line is vertical, which occurs when $x_(-2) = x_(-1)$, then the range is simply equal to the $x$-value of either of the last two points.
+
+#figure(
+  caption: [Intersection Between Ground and Last Two Points],
+  cetz.canvas({
+    import cetz.draw: *
+    set-style(content: (padding: 0.2))
+    set-style(circle: (radius: 0.1, fill: black))
+
+    // Draw a line for the ground
+    line((-2, 0), (5, 0), name: "ground")
+
+    // Draw the line connecting the last two points of the projectile path
+    let p_2 = (1, 1)
+    let p_1 = (4, -2)
+    set-style(line: (stroke: (dash: "dashed")))
+    line(p_2, p_1, name: "path")
+    content("path.mid", anchor: "north-east", $y = m (x - x_(-1)) + y_(-1)$)
+
+    // Draw the end points
+    let point_radius = 0.1
+    circle(p_2, name: "p_2")
+    circle(p_1, name: "p_1")
+    content("p_2.north", anchor: "south", $(x_(-2), y_(-2))$)
+    content("p_1.south", anchor: "north", $(x_(-1), y_(-1))$)
+
+    // Draw the intersection point
+    intersections("i", "ground", "path")
+    circle("i.0")
+    content("i.0", anchor: "south-west", $(R, 0)$)
+
+  })
+)
+
 #py_script("projectile", put_output: false, put_fname: true)
 
 = Interdependence of Horizontal and Vertical Motion
