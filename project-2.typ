@@ -11,7 +11,7 @@
   date: datetime(year: 2025, month: 5, day: 25),
 )
 
-// #image("media/thumbnail.png")
+#image("media/thumbnail.svg")
 
 // Table of contents
 #pagebreak()
@@ -194,3 +194,8 @@ Since the plots vary as $v_(0x)$ changes, this demonstrates the interdependence 
   caption: [Test Hitting Target],
 )
 
+= Cover Image
+
+The following script was use to create the cover image.
+
+#py_script("create_thumbnail", put_output: false, put_fname: false)

@@ -17,6 +17,7 @@ $(OUTPUT_DIR)/motion_interdependence.output: $(SCRIPT_DIR)/projectile.py
 $(OUTPUT_DIR)/trajectory_shapes.output: $(SCRIPT_DIR)/projectile.py
 $(OUTPUT_DIR)/firing_range.output: $(SCRIPT_DIR)/projectile.py
 $(OUTPUT_DIR)/hitting_fixed_target.output: $(SCRIPT_DIR)/projectile.py
+$(OUTPUT_DIR)/create_thumbnail.output: $(SCRIPT_DIR)/projectile.py
 
 .PHONY: clean
 clean: 
