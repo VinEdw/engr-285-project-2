@@ -149,6 +149,7 @@ Since the plots vary as $v_(0y)$ changes, this demonstrates the interdependence 
 @y_vs_t plots the vertical position of the projectile over time as the initial horizontal velocity varies.
 The initial vertical velocity was kept constant.
 Each launch was kept going until the projectile hit the ground ($y = 0$).
+Notice that the max height and time in the air decrease as $v_(0x)$ increases.
 If $x$ and $y$ motion were independent, then each plot for a different $v_(0x)$ value would be identical.
 Since the plots vary as $v_(0x)$ changes, this demonstrates the interdependence of $x$ and $y$ motion.
 
