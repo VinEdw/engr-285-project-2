@@ -117,22 +117,71 @@ def find_launch_speed(rad_launch_theta, target_pos, launch_speed_guess=1.0):
     return bisection(launch_speed_low, launch_speed_high, distance_func)
 
 N = 50
-angle_padding = 20
-deg_theta_values = np.linspace(0 + angle_padding, 90 - angle_padding, N)
+deg_pad_low = 3
+deg_launch_values = np.linspace(0, 90, N)
 
-target_pos = (2, 1)
-deg_target_theta = np.degrees(np.atan2(target_pos[1], target_pos[0]))
-deg_theta_above_target = deg_theta_values[deg_theta_values > deg_target_theta]
-rad_theta_above_target = np.radians(deg_theta_above_target)
-
-launch_speed_values = []
-launch_speed_guess = 1.0
-for rad_theta in rad_theta_above_target:
-    launch_speed = find_launch_speed(rad_theta, target_pos, launch_speed_guess=launch_speed_guess)
-    launch_speed_values.append(launch_speed)
-    launch_speed_guess = launch_speed
+# Plot launch velocity vs launch angle as the target angle varies
+max_launch_speed = 5
+deg_target_values = np.linspace(0, 45, 4)
+target_distance = 1.0
 
 fig, ax = plt.subplots()
-ax.set(ylabel="$v_0$", xlabel="$\\theta$ (°)", title=f"Target at (x, y) = {target_pos}")
-ax.plot(deg_theta_above_target, launch_speed_values, ".")
-fig.savefig("media/test_hitting_target.svg")
+ax.set(ylabel="$v_0$", xlabel="$\\theta$ (°)", title=f"Target Distance = {target_distance}")
+
+for deg_target in deg_target_values:
+    deg_launch_above_target = deg_launch_values[deg_launch_values > deg_target + deg_pad_low]
+    rad_launch_above_target = np.radians(deg_launch_above_target)
+
+    rad_target = np.radians(deg_target)
+    target_pos = (target_distance * np.cos(rad_target), target_distance * np.sin(rad_target))
+
+    launch_speed_values = []
+    launch_speed_guess = 1.0
+    for rad_launch in rad_launch_above_target:
+        launch_speed = find_launch_speed(rad_launch, target_pos, launch_speed_guess=launch_speed_guess)
+        launch_speed_values.append(launch_speed)
+        launch_speed_guess = launch_speed
+
+        if launch_speed > max_launch_speed:
+            launch_speed_values.pop()
+            deg_launch_above_target = deg_launch_above_target[:len(launch_speed_values)]
+            break
+
+    ax.plot(deg_launch_above_target, launch_speed_values, ".")
+
+fig.legend(deg_target_values, title="Target Angle (°)")
+fig.tight_layout()
+fig.savefig("media/hitting_target_varied_angle.svg")
+
+# Plot launch velocity vs launch angle as the target distance varies
+max_launch_speed = 30
+deg_target = 15
+target_distance_values = np.linspace(1, 3, 3)
+
+fig, ax = plt.subplots()
+ax.set(ylabel="$v_0$", xlabel="$\\theta$ (°)", title=f"Target Angle = {deg_target}°")
+
+for target_distance in target_distance_values:
+    deg_launch_above_target = deg_launch_values[deg_launch_values > deg_target + deg_pad_low]
+    rad_launch_above_target = np.radians(deg_launch_above_target)
+
+    rad_target = np.radians(deg_target)
+    target_pos = (target_distance * np.cos(rad_target), target_distance * np.sin(rad_target))
+
+    launch_speed_values = []
+    launch_speed_guess = 1.0
+    for rad_launch in rad_launch_above_target:
+        launch_speed = find_launch_speed(rad_launch, target_pos, launch_speed_guess=launch_speed_guess)
+        launch_speed_values.append(launch_speed)
+        launch_speed_guess = launch_speed
+
+        if launch_speed > max_launch_speed:
+            launch_speed_values.pop()
+            deg_launch_above_target = deg_launch_above_target[:len(launch_speed_values)]
+            break
+
+    ax.plot(deg_launch_above_target, launch_speed_values, ".")
+
+fig.legend(target_distance_values, title="Target Distance")
+fig.tight_layout()
+fig.savefig("media/hitting_target_varied_distance.svg")

@@ -209,8 +209,13 @@ When the launch speed is lower, the projectile experiences lower drag force on a
 #py_script("hitting_fixed_target", put_output: false, put_fname: false)
 
 #figure(
-  image("media/test_hitting_target.svg", width: 80%),
-  caption: [Test Hitting Target],
+  image("media/hitting_target_varied_angle.svg", width: 80%),
+  caption: [$v$ vs $theta$ as Target Angle Varies],
+)
+
+#figure(
+  image("media/hitting_target_varied_distance.svg", width: 80%),
+  caption: [$v$ vs $theta$ as Target Distance Varies],
 )
 
 = Cover Image
