@@ -160,17 +160,35 @@ Since the plots vary as $v_(0x)$ changes, this demonstrates the interdependence 
 
 = Trajectory Shapes
 
+Projectiles that experience no drag follow parabolic trajectories.
+In contrast, projectiles that experience quadratic drag follow trajectories that are approximately parabolic.
+These trajectories are asymmetric and drop more steeply than they rise.
+The horizontal velocity continuously decreases towards zero, since the drag always opposes the motion and decreases as the horizontal velocity decreases.
+The vertical velocity decreases to zero initially, then decreases towards the negative of the terminal speed.
+Thus, the angle of descent approaches -90#sym.degree as the projectile falls for a long time.
+
 #py_script("trajectory_shapes", put_output: false, put_fname: false)
+
+@xy_vs_theta plots the projectile's trajectory as the launch angle varies.
+The launch speed was kept constant.
+The trajectories for smaller launch angles appear more symmetric than for higher launch angles (excluding $theta = 90 degree$, as that path is a vertical line regardless of drag).
+This could be due to larger launch angles providing more air time, allowing drag to have more of an impact on the trajectory.
 
 #figure(
   image("media/xy_vs_theta.svg", width: 80%),
   caption: [Trajectory as $theta$ Varies],
-)
+) <xy_vs_theta>
+
+@xy_vs_v plots the projectile's trajectory as the launch speed varies.
+The launch angle was kept constant.
+The trajectories for smaller launch speeds appear more symmetric than for higher launch velocities.
+When the launch speed is higher, the projectile experiences higher drag force on average and its trajectory is more noticeably impacted.
+When the launch speed is lower, the projectile experiences lower drag force on average and its trajectory is less noticeably impacted.
 
 #figure(
   image("media/xy_vs_v.svg", width: 80%),
   caption: [Trajectory as $v_0$ Varies],
-)
+) <xy_vs_v>
 
 = Firing Range
 
