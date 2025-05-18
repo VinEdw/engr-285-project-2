@@ -182,7 +182,7 @@ Since the plots vary as $v_(0x)$ changes, this demonstrates the interdependence 
 )
 
 #figure(
-  image("media/xy_vs_v.svg", width: 80%),
+  image("media/R_vs_v.svg", width: 80%),
   caption: [$R$ vs $v_0$ as $theta$ Varies],
 )
 
