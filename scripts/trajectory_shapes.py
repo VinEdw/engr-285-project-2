@@ -25,7 +25,7 @@ fig.savefig("media/xy_vs_theta.svg")
 # Plot trajectories as launch speed changes
 deg_theta = 45
 rad_theta = np.radians(deg_theta)
-v_0_values = np.linspace(0, 1.5, 7)
+v_0_values = np.linspace(0, 2.0, 9)
 
 fig, ax = plt.subplots()
 ax.set(ylabel="$y$", xlabel="$x$", title=f"$\\theta$ = {deg_theta}°")
