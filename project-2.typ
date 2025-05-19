@@ -127,8 +127,9 @@ Thus, the angle of descent approaches -90#sym.degree as the projectile falls for
 
 @xy_vs_theta plots the projectile's trajectory as the launch angle varies.
 The launch speed was kept constant.
-The trajectories for smaller launch angles appear more symmetric than for higher launch angles (excluding $theta = 90 degree$, as that path is a vertical line regardless of drag).
-This could be due to larger launch angles providing more air time, allowing drag to have more of an impact on the trajectory.
+The trajectories appear more symmetric for launch angles that are closer to 0#sym.degree or 90#sym.degree.
+When the launch angle is smaller, the projectile does not stay in the air for very long, reducing the time drag has to impact the trajectory.
+When the launch angle is larger, the projectile has a relatively low horizontal velocity, so the drag will not reduce the horizontal velocity as much to shift the trajectory.
 
 #figure(
   image("media/xy_vs_theta.svg", width: 80%),
