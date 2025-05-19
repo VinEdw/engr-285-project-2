@@ -10,7 +10,7 @@ def u_prime(t, u):
     g = 1
 
     x, y, v_x, v_y = u
-    speed = np.sqrt(v_x**2 + v_y**2);
+    speed = np.sqrt(v_x**2 + v_y**2)
     drag_part = k * speed
     drag_x = drag_part * v_x
     drag_y = drag_part * v_y
