@@ -12,12 +12,8 @@ def u_prime(t, u):
     x, y, v_x, v_y = u
     speed = np.sqrt(v_x**2 + v_y**2);
     drag_part = k * speed
-    if speed == 0:
-        drag_x = 0
-        drag_y = 0
-    else:
-        drag_x = drag_part * v_x
-        drag_y = drag_part * v_y
+    drag_x = drag_part * v_x
+    drag_y = drag_part * v_y
 
     return np.array([
         v_x,
