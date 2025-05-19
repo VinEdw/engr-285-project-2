@@ -221,17 +221,53 @@ As observed earlier, it becomes more efficient to prioritize having a greater in
 
 = Hitting a Fixed Target
 
+When launching projectiles, often the goal is to hit a fixed target with a known location.
+This requires determining an appropriate launch speed and launch angle.
+Note that for the projectile to have a chance of hitting the target, it must be launched at an angle greater than the target angle.
+The target angle is the angle of the line of sight, the imaginary line between the target and the launch locations.
+For targets not located directly above the origin, the launch angle must be kept below 90#sym.degree.
+
+For a chosen launch angle, an initial guess at a launch speed is made.
+The projectile is launched with that velocity, and iterations are stopped when the projectile falls below the line of sight.
+The distance of the projectile from the target when it crossed the line of sight is determined, with negative values corresponding to undershooting and positive values corresponding to overshooting.
+Determining this distance involves finding the intersection point between the line of sight and the line connecting the last two points of the projectile's motion, then taking the difference in distance from the origin for the intersection point and the target location.
+
+If the launch speed guess undershoots, then launch speeds that are twice as large are tried until one is found that overshoots.
+If the launch speed guess overshoots, then launch speeds that are half as large are tried until one is found that undershoots.
+With one launch speed that overshoots and another that undershoots, the bisection method is used to narrow in on a launch speed that achieves zero distance from the target.
+The projectile is launched with the average of the overshooting and undershooting speeds, and this speed replaces the upper or lower bound depending on whether it overshoots or undershoots.
+This process repeats until the launch speed range has an acceptable tolerance.
+The middle launch speed from the last iteration is returned as the launch speed required to hit the target.
+
 #py_script("hitting_fixed_target", put_output: false, put_fname: false)
+
+@hitting_target_varied_angle plots the launch speed versus launch angle for different target angles.
+The target distance was kept constant.
+For each curve, the launch speed required decreases initially then increases as the launch angle increases.
+When the launch angle is too low, the projectile gets relatively little time in the error before crossing the line of sight, so it needs to be launched with greater speed to compensate.
+When the launch angle is too high, the projectile gets relatively little horizontal velocity, so it needs to be launched with greater speed to compensate.
+
+As the target angle increases, the curve shifts up and to the right and gets horizontally compressed.
+Increasing the target angle increases the minimum viable launch angle, as the projectile must be launched above the line of sight.
+This shifts the curve to the right and compresses it horizontally to fit within the angle restrictions.
+Since increasing the target angle also increases the target elevation, the projectile must be given more starting kinetic energy in order to attain a larger ending gravitational potential energy.
+This shifts the curve upward, corresponding to higher launch speeds and greater initial kinetic energy.
 
 #figure(
   image("media/hitting_target_varied_angle.svg", width: 80%),
   caption: [$v$ vs $theta$ as Target Angle Varies],
-)
+) <hitting_target_varied_angle>
+
+@hitting_target_varied_distance plots the launch speed versus launch angle for different target distances.
+The target angle was kept constant.
+As the target distance increases, the curve shifts upward, reflecting the requirement for more starting kinetic energy as the final gravitational potential energy increases.
+In addition, as the target distance increases, the launch angle corresponding to the minimum launch speed decreases.
+With a further target, it becomes more important to prioritize horizontal velocity rather than air time.
 
 #figure(
   image("media/hitting_target_varied_distance.svg", width: 80%),
   caption: [$v$ vs $theta$ as Target Distance Varies],
-)
+) <hitting_target_varied_distance>
 
 = Cover Image
 
