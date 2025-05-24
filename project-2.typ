@@ -122,6 +122,8 @@ Since the plots vary as $v_(0y)$ changes, this demonstrates the interdependence 
 The initial vertical velocity was kept constant.
 Each launch was kept going until the projectile hit the ground ($y = 0$).
 Notice that the max height and time in the air decrease as $v_(0x)$ increases.
+With greater horizontal velocity, the air drag experienced in the vertical direction increases.
+This causes the vertical velocity to decrease to 0 sooner, reducing the max height.
 If $x$ and $y$ motion were independent, then each plot for a different $v_(0x)$ value would be identical.
 Since the plots vary as $v_(0x)$ changes, this demonstrates the interdependence of $x$ and $y$ motion.
 
@@ -157,6 +159,10 @@ The launch angle was kept constant.
 The trajectories for smaller launch speeds appear more symmetric than for higher launch velocities.
 When the launch speed is higher, the projectile experiences higher drag force on average and its trajectory is more noticeably impacted.
 When the launch speed is lower, the projectile experiences lower drag force on average and its trajectory is less noticeably impacted.
+
+The max height of the projectile also gets larger as the initial velocity is increases.
+This is to be expected, as larger launch speeds correspond to greater initial vertical velocity.
+It then takes more time for the projectile's vertical velocity to decrease to 0, resulting in a greater max height.
 
 #figure(
   image("media/xy_vs_v.svg", width: 80%),
