@@ -254,6 +254,7 @@ For a chosen launch angle, an initial guess at a launch speed is made.
 The projectile is launched with that velocity, and iterations are stopped when the projectile falls below the line of sight.
 The distance of the projectile from the target when it crossed the line of sight is determined, with negative values corresponding to undershooting and positive values corresponding to overshooting.
 Determining this distance involves finding the intersection point between the line of sight and the line connecting the last two points of the projectile's motion, then taking the difference in distance from the origin for the intersection point and the target location.
+@over_under_shooting depicts what the paths might look like for overshooting and undershooting the target, as well as the intersection points with the line of sight.
 
 If the launch speed guess undershoots, then launch speeds that are twice as large are tried until one is found that overshoots.
 If the launch speed guess overshoots, then launch speeds that are half as large are tried until one is found that undershoots.
@@ -261,6 +262,11 @@ With one launch speed that overshoots and another that undershoots, the bisectio
 The projectile is launched with the average of the overshooting and undershooting speeds, and this speed replaces the upper or lower bound depending on whether it overshoots or undershoots.
 This process repeats until the launch speed range has an acceptable tolerance.
 The middle launch speed from the last iteration is returned as the launch speed required to hit the target.
+
+#figure(
+  image("media/over-under-shooting-sketch.jpg", width: 60%),
+  caption: [Overshooting and Undershooting the Target When Solving for Launch Speed]
+) <over_under_shooting>
 
 #py_script("hitting_fixed_target", put_output: false, put_fname: false)
 
