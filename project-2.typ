@@ -24,7 +24,7 @@ In introductory physics, projectiles are typically modeled as experiencing negli
 For this project, projectiles were modeled as experiencing _quadratic drag_.
 $
 (d^2 arrow(r))/(d t^2) = arrow(g) - k v^2 hat(v)
-$
+$ <drag_eq>
 
 The terms in this equation are as follows:
 $
