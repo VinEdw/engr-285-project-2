@@ -67,6 +67,22 @@ The `rk4.py` file contains a `calculate()` function that implements the RK4 meth
 The `projectile.py` file contains functions to help simulate the motion of a projectile experiencing quadratic drag.
 The `u_prime()` function implements the system of differential equations that describe the motion of the projectile.
 
+The derivatives of $x$ and $y$ with respect to time are simply $v_x$ and $v_y$ respectively.
+$ (d x)/(d t) = v_x $
+$ (d y)/(d t) = v_y $
+The derivatives of $v_x$ and $v_y$ with respect to time must be determined by finding the $x$ and $y$ components of @drag_eq.
+Using the formula for a unit vector, $hat(v)$ can be rewritten as
+$
+hat(v) = arrow(v)/v = (v_x hat(i) + v_y hat(j))/v
+$
+Substituting that expression for $hat(v)$ into @drag_eq yields
+$
+(d^2 arrow(r))/(d t^2) = arrow(g) - k v^2 ((v_x hat(i) + v_y hat(j))/v) = -g hat(j) - k v (v_x hat(i) + v_y hat(j))
+$
+Since $(d^2 arrow(r))/(d t^2) = (d arrow(v))/(d t)$, the components of that equation represent the derivatives of $v_x$ and $v_y$ with respect to time.
+$ (d v_x)/(d t) = - k v  v_x $
+$ (d v_y)/(d t) = - g - k v  v_x $
+This results in the following equations for $arrow(u)$ and its derivative.
 $
 arrow(u) &= vec(x, y, v_x, v_y) \
 (d arrow(u))/(d t) &= vec(v_x, v_y, -k v v_x, -g - k v v_y)
