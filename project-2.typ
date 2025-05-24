@@ -157,8 +157,9 @@ When the launch angle is larger, the projectile has a relatively low horizontal 
 @xy_vs_v plots the projectile's trajectory as the launch speed varies.
 The launch angle was kept constant.
 The trajectories for smaller launch speeds appear more symmetric than for higher launch velocities.
-When the launch speed is higher, the projectile experiences higher drag force on average and its trajectory is more noticeably impacted.
-When the launch speed is lower, the projectile experiences lower drag force on average and its trajectory is less noticeably impacted.
+When the launch speed is higher, the projectile experiences higher drag force on average.
+As a result, the trajectory is more noticeably impacted with the right side of the parabola dropping more steeply than the left side rises.
+When the launch speed is lower, the projectile experiences lower drag force on average and its trajectory is less noticeably impacted, so the parabolic shape is maintained more in these conditions.
 
 The max height of the projectile also gets larger as the initial velocity is increases.
 This is to be expected, as larger launch speeds correspond to greater initial vertical velocity.
