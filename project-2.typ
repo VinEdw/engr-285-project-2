@@ -149,6 +149,11 @@ The trajectories appear more symmetric for launch angles that are closer to 0#sy
 When the launch angle is smaller, the projectile does not stay in the air for very long, reducing the time drag has to impact the trajectory.
 When the launch angle is larger, the projectile has a relatively low horizontal velocity, so the drag will not reduce the horizontal velocity as much to shift the trajectory.
 
+When using a model that neglects air drag, 45#sym.degree is the launch angle that achieves maximum range.
+Of the trajectories tested in this figure, 45#sym.degree did achieve the highest range.
+However, as will be seen later in @R_vs_theta, the optimal launch angle shifts leftward as the launch speed increases.
+Thus, 45#sym.degree only appeared to be the optimal launch angle because not enough angles were tested. 
+
 #figure(
   image("media/xy_vs_theta.svg", width: 80%),
   caption: [Trajectory as $theta$ Varies],
