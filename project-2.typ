@@ -222,7 +222,7 @@ Note that if the line is vertical, which occurs when $x_(-2) = x_(-1)$, then the
 
 @R_vs_theta plots the firing range of the projectile versus the launch angle for different launch speeds.
 Regardless of launch speed, the range is zero if the launch angle is 0#sym.degree or 90#sym.degree.
-The projectile cannot move horizontally if does not have any initial horizontal velocity ($theta = 90 degree$), nor can it do so if it has no time in the air ($theta = 0 degree$).
+The projectile cannot move horizontally it if does not have any initial horizontal velocity ($theta = 90 degree$), nor can it do so if it has no time in the air ($theta = 0 degree$).
 Each curve is concave downward.
 For low launch speeds, the optimal angle that achieves maximum range is close to 45#sym.degree, which matches what is expected when air drag is negligible.
 As the launch speed increases, that optimal angle decreases.
