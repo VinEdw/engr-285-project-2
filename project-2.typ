@@ -81,7 +81,7 @@ $
 $
 Since $(d^2 arrow(r))/(d t^2) = (d arrow(v))/(d t)$, the components of that equation represent the derivatives of $v_x$ and $v_y$ with respect to time.
 $ (d v_x)/(d t) = - k v  v_x $
-$ (d v_y)/(d t) = - g - k v  v_x $
+$ (d v_y)/(d t) = - g - k v  v_y $
 This results in the following equations for $arrow(u)$ and its derivative.
 $
 arrow(u) &= vec(x, y, v_x, v_y) \
