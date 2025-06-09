@@ -38,7 +38,7 @@ pause arrow(g) &= vec(0, -g) quad&("gravitation acceleration") \
 pause k &= "\"constant\"" quad&("drag constant") \
 $
 
-#pause Let $g=1$, $k=1$, & $v_oo=1$ to focus on scale-independent features
+#align(center)[#pause Let $g=1$, $k=1$, & $v_oo=1$]
 
 == RK4 Method for Systems
 
