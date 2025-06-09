@@ -4,7 +4,15 @@ OUTPUT_DIR := ./output
 SCRIPTS := $(shell find $(SCRIPT_DIR) -type f -name '*.py')
 OUTPUTS := $(SCRIPTS:$(SCRIPT_DIR)/%.py=$(OUTPUT_DIR)/%.output)
 
+DOCUMENTS := project-2.pdf presentation-2.pdf
+
+.PHONY: all
+all: $(DOCUMENTS)
+
 project-2.pdf: project-2.typ engr-conf.typ $(OUTPUTS)
+	typst compile $<
+
+presentation-2.pdf: presentation-2.typ $(OUTPUTS)
 	typst compile $<
 
 $(OUTPUT_DIR)/%.output: $(SCRIPT_DIR)/%.py
